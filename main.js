@@ -1,4 +1,4 @@
-		
+$(function (){
 		var slider = document.getElementById('sliderStatus');
 		var message = document.getElementById('sliderMessage');
 		slider.classList.remove("orange","yellow","lightgreen","green");
@@ -52,3 +52,4 @@
 		slider.addEventListener('input', function(){
 			sliderChange(callback());
 		});
+});
