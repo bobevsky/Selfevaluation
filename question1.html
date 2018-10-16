@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>Прашање 1</title>
-	<meta name="keywords" content="html,css,lekcii">
-	<meta name="description" content="ova e strana za ucenje">
+	<meta name="keywords" content="html,css,javascript,jquery">
+	<meta name="description" content="projects">
 	<meta name="author" content="Kristijan Bobevski">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -13,8 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="icon" type="image/png" href="https://cdn.brainster.co/assets/images/favicon_dark/favicon-32x32.png" sizes="32x32">
-	<style>
-	</style>
 </head>
 <body>
 	<nav class="nav navbar-inverse">
@@ -45,7 +43,7 @@
 				<i class="fa fa-heart fa-3x c-grey" aria-hidden="true"></i>
 				<h3 class="lt-space m-bt-big c-grey animated2 pulse">Колку уживаше на работа оваа недела?</h3>
 				<div class="slider">
-					<input type="range" min="0" max="100" value="0" step="1" onchange="sliderChange(this.value)" id="sliderStatus" class="red orange yellow lightgreen green">
+					<input type="range" min="0" max="100" value="0" step="1" id="sliderStatus" class="red orange yellow lightgreen green">
 					<p id="sliderMessage" class="lt-space">Неделава беше ужасна..</p>
 				</div>
 				<a class="btn btn-lg bg-grey c-white m-r lt-space" type="button" href="homepage.html"><i class="fa fa-angle-left" aria-hidden="true" ></i> НАЗАД</a>
@@ -73,63 +71,11 @@
 		</div>
 	</div>
 
-	<script type="text/javascript">
-		var slider = document.getElementById('sliderStatus');
-		var message = document.getElementById('sliderMessage');
-		slider.addEventListener('mousemove', sliderChange);
-		slider.classList.remove("orange","yellow","lightgreen","green");
-
-		$(function(){
-			$(window).on('load', function(){
-				$('#sliderStatus').attr({
-					value: '55'
-				});
-				message.innerHTML = "Уште една обична работна недела.";
-				message.style.color = "#fff200";
-				slider.style.background = "#fff200";//<-- yellow
-				slider.classList.add("yellow");
-				slider.classList.remove("lightgreen");
-			});
-		});
-
-		function sliderChange(val){
-			if (slider.value <= 9) {
-				message.innerHTML = "Неделава беше ужасна..";
-				message.style.color = "red";
-				slider.style.background = "#ed1c24"; //<-- red
-				slider.classList.add("red");
-				slider.classList.remove("orange");
-
-			} else if (slider.value <= 39){
-				message.innerHTML = "Можеше и подобро.";
-				message.style.color = "#ff7f27";
-				slider.style.background = "#ff7f27";//<-- orange
-				slider.classList.add("orange");
-				slider.classList.remove("yellow");
-
-			} else if (slider.value <= 60){
-				message.innerHTML = "Уште една обична работна недела.";
-				message.style.color = "#fff200";
-				slider.style.background = "#fff200";//<-- yellow
-				slider.classList.add("yellow");
-				slider.classList.remove("lightgreen");
-
-
-			} else if (slider.value <= 90){
-				message.innerHTML = "Забавно беше";
-				message.style.color = "#7aff0e";
-				slider.style.background = "#7aff0e";//<--lightgreen
-				slider.classList.add("lightgreen");
-				slider.classList.remove("green");
-
-			} else if (slider.value <= 100){
-				message.innerHTML = "WOW, одлична недела.";
-				message.style.color = "#0ed145";
-				slider.style.background = "#0ed145";//<--green
-				slider.classList.add("green");
+	<script src="main.js"></script>
+	<script>
+			function callback(){
+				localStorage.setItem("1stValue", $('#sliderStatus').val());
 			}
-			}
-
-        </script>
+	</script>
 </body>
 </html>

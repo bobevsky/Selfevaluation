@@ -42,40 +42,40 @@
 	<div class="container">
 		<div class="row flex flex-height-lastpage animated zoomIn">
 			<div class="col-md-6 col-md-offset-3 text-center col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1 col-margin-media">
-				<img src="orange.png" alt="" class="orange-emo">
-				<h4 class="text-muted">4.3</h4>
-				<h3 class="cl-orange">Можеше и подобро.</h3>
-				<h4 class="text-muted m-bottom">Насмеј се, следната недела ќе биде подобра.</h4>
+				<img alt="" class="orange-emo" id="total">
+				<h4 class="text-muted" id="rezTotal"></h4>
+				<h3 class="cl-orange" id="totalMessage"></h3>
+				<h4 class="text-muted m-bottom" id="totalStatus"></h4>
 				<div class="flex-between m-bottom">
 					<div class="text-center">
 						<h5 class="text-muted text-media">Работа</h5>
 						<i class="fa fa-heart fa-2x ico-media" aria-hidden="true"></i>
-						<img src="red.png" alt="" class="red-emo">
-						<h5 class="text-muted">0.0</h5>
+						<img class="red-emo" id="rez1">
+						<h5 class="text-muted 1stVal"></h5>
 					</div>
 					<div class="text-center">
 						<h5 class="text-muted text-media">Тим</h5>
 						<i class="fa fa-users fa-2x ico-media" aria-hidden="true"></i>
-						<img src="orange.png" alt="" class="orange-emo-sm">
-						<h5 class="text-muted">5.0</h5>
+						<img class="orange-emo-sm" id="rez2">
+						<h5 class="text-muted 2ndVal"></h5>
 					</div>
 					<div class="text-center">
 						<h5 class="text-muted text-media">Продуктивност</h5>
 						<i class="fa fa-coffee fa-2x ico-media" aria-hidden="true"></i>
-						<img src="lightgreen.png" alt="" class="red-emo">
-						<h5 class="text-muted">6.6</h5>
+						<img class="red-emo" id="rez3">
+						<h5 class="text-muted 3rdVal"></h5>
 					</div>
 					<div class="text-center">
 						<h5 class="text-muted text-media">Едукација</h5>
 						<i class="fa fa-graduation-cap fa-2x ico-media" aria-hidden="true"></i>
-						<img src="green.png" alt="" class="red-emo">
-						<h5 class="text-muted">10.0</h5>
+						<img class="red-emo" id="rez4">
+						<h5 class="text-muted 4thVal"></h5>
 					</div>
 					<div class="text-center">
 						<h5 class="text-muted text-media">Стрес</h5>
 						<i class="fa fa-clock-o fa-2x ico-media"></i>
-						<img src="red.png" alt="" class="red-emo">
-						<h5 class="text-muted">0.0</h5>
+						<img class="red-emo" id="rez5">
+						<h5 class="text-muted 5thVal"></h5>
 					</div>
 				</div>
 				<h6 class="text-center m-bottom">Ако сакаш да го измериш задоволството на вашите вработени, регистрирај се, а ние ќе ви ги испратиме опциите.</h6>
@@ -102,5 +102,79 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		$(function(){
+			var local_first = localStorage.getItem('1stValue')/10;
+			$('.1stVal').text(local_first.toFixed(1));
+
+			var local_second = localStorage.getItem('2ndValue')/10
+			$('.2ndVal').text(local_second.toFixed(1));
+
+			var local_third = localStorage.getItem('3rdValue')/10;
+			$('.3rdVal').text(local_third.toFixed(1));
+
+			var local_fourth = localStorage.getItem('4thValue')/10;
+			$('.4thVal').text(local_fourth.toFixed(1));
+
+			var local_fifth = localStorage.getItem('5thValue')/10;
+			$('.5thVal').text(local_fifth.toFixed(1));
+
+
+			function calculate(value,element){
+				if ( value <= 0.9 ) {
+					element.attr({
+						src: 'red.png'
+					});
+					$('#totalMessage').text('Неделава беше ужасна...').css({
+						color: 'red'
+					});
+					$('#totalStatus').text('Не очајувај, со поголем труд, до поголем успех')
+				} else if (value > 0.9 && value <= 3.9){
+					element.attr({
+						src: 'orange.png'
+					})
+					$('#totalMessage').text('Можеше и подобро.').css({
+						color: '#ff7f27'
+					});
+					$('#totalStatus').text('Насмеј се и започни ја следната недела позитивно.')
+				} else if (value > 3.9 && value <= 6.0){
+					element.attr({
+						src: 'yellow.png'
+					});
+					$('#totalMessage').text('Уште една обична работна недела.').css({
+						color: '#fff200'
+					});
+					$('#totalStatus').text('Задржи го фокусот и направи ја наредната недела подобра.')
+				} else if (value > 6.0 && value <= 9.0){
+					element.attr({
+						src: 'lightgreen.png'
+					});
+					$('#totalMessage').text('Забавно беше.').css({
+						color: '#7aff0e'
+					});
+					$('#totalStatus').text('Задржи ја мотивацијата и продолжи така и следната недела.')
+				} else if (value > 9.0 && value <= 10.0){
+					element.attr({
+						src: 'green.png'
+					});
+					$('#totalMessage').text('WOW, одлична недела.').css({
+						color: '#0ed145'
+					});
+					$('#totalStatus').text('Пренеси ја радоста и самодовербата и во наредната недела.')
+				}
+			}
+
+			var total = (local_first + local_second + local_third + local_fourth + local_fifth)/5;
+
+			$('#rezTotal').text(total.toFixed(1));
+
+			calculate(local_first, $('#rez1'));
+			calculate(local_second, $('#rez2'));
+			calculate(local_third, $('#rez3'));
+			calculate(local_fourth, $('#rez4'));
+			calculate(local_fifth, $('#rez5'));
+			calculate(total, $('#total'));
+		});
+	</script>
 </body>
 </html>

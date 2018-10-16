@@ -128,7 +128,7 @@
 
 .reg-button {
 	padding: 10px 50px;
-	background-color: red;
+	background-color: #EB1C22;
 	color: white;
 }
 
@@ -178,7 +178,7 @@
     background: url('red-pin.png');
     cursor: pointer;
     background-size: 36px;
-    margin-top: -59px;
+    margin-top: -60px;
     margin-left: -20px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -215,7 +215,7 @@
     background: url('orange-pin.png');
     cursor: pointer;
     background-size: 36px;
-    margin-top: -59px;
+    margin-top: -60px;
     /*margin-left: -10px;*/
     background-size: contain;
     background-repeat: no-repeat;
@@ -252,7 +252,7 @@
     background: url('yellow-pin.png');
     cursor: pointer;
     background-size: 36px;
-    margin-top: -59px;
+    margin-top: -60px;
     /*margin-left: 0px;*/
     background-size: contain;
     background-repeat: no-repeat;
@@ -289,7 +289,7 @@
     background: url('lightgreen-pin.png');
     cursor: pointer;
     background-size: 36px;
-    margin-top: -59px;
+    margin-top: -60px;
     /*margin-left: 10px;*/
     background-size: contain;
     background-repeat: no-repeat;
@@ -326,7 +326,7 @@
     background: url('green-pin.png');
     cursor: pointer;
     background-size: 36px;
-    margin-top: -59px;
+    margin-top: -60px;
     /*margin-left: 20px;*/
     background-size: contain;
     background-repeat: no-repeat;
