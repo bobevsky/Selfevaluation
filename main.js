@@ -8,7 +8,8 @@
 				$('#sliderStatus').attr({
 					value: '50'
 				})
-			} else if (/chrom(e|ium)/.test(navigator.userAgent.toLowerCase())){
+			} 
+		if (/chrom(e|ium)/.test(navigator.userAgent.toLowerCase())){
 				$('#sliderStatus').attr({
 					value: '54'
 				});
