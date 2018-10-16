@@ -2,16 +2,7 @@ $(function (){
 		var slider = document.getElementById('sliderStatus');
 		var message = document.getElementById('sliderMessage');
 		slider.classList.remove("orange","yellow","lightgreen","green");
-		
-		{/chrom(e|ium)/.test(navigator.userAgent.toLowerCase()) ? $('#sliderStatus').attr({value: '54'}) : 
-		$('#sliderStatus').attr({ value: '50'})}
-		
-		message.innerHTML = "Уште една обична работна недела.";
-		message.style.color = "#fff200";
-		slider.style.background = "#fff200";//<-- yellow
-		slider.classList.add("yellow");
-		slider.classList.remove("lightgreen");
-		
+				
 		function sliderChange(callback){
 			if (slider.value <= 9) {
 				message.innerHTML = "Неделава беше ужасна...";
