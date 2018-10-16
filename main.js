@@ -3,17 +3,9 @@
 		var message = document.getElementById('sliderMessage');
 		slider.classList.remove("orange","yellow","lightgreen","green");
 		
-		if (navigator.userAgent.indexOf("Firefox") != -1)
-			{
-				$('#sliderStatus').attr({
-					value: '50'
-				})
-			} 
-		if (/chrom(e|ium)/.test(navigator.userAgent.toLowerCase())){
-				$('#sliderStatus').attr({
-					value: '54'
-				});
-			}
+		{/chrom(e|ium)/.test(navigator.userAgent.toLowerCase()) ? $('#sliderStatus').attr({value: '54'}) : 
+		$('#sliderStatus').attr({ value: '50'})}
+		
 		message.innerHTML = "Уште една обична работна недела.";
 		message.style.color = "#fff200";
 		slider.style.background = "#fff200";//<-- yellow
